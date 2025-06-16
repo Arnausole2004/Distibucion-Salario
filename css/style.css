@@ -1,0 +1,166 @@
+/* Estilos generales y de layout */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafb;
+  color: #2e3a35;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #388e3c;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  background-color: #e8f5e9;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #c8e6c9;
+  margin-bottom: 2rem;
+}
+
+/* Formularios */
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #a5d6a7;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #2e7d32;
+  outline: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: #27632a;
+  outline: none;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: #555;
+  font-size: 0.9rem;
+  background-color: #e8f5e9;
+  border-top: 1px solid #c8e6c9;
+  margin-top: 2rem;
+}
+
+/* Navbar básico */
+
+.navbar {
+  background-color: #2e7d32;
+  padding: 1rem 0;
+}
+
+.navbar .nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #a5d6a7;
+  outline: none;
+}
