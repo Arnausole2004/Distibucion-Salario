@@ -1,0 +1,85 @@
+/* Estilos específicos para componentes dinámicos o funcionales */
+
+/* Resultado de test o calculadora */
+
+#result {
+  background-color: #dcedc8;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  color: #33691e;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Formulario con validación */
+
+input:invalid,
+textarea:invalid,
+select:invalid {
+  border-color: #d32f2f;
+  background-color: #ffebee;
+}
+
+input:valid,
+textarea:valid,
+select:valid {
+  border-color: #388e3c;
+}
+
+/* Animaciones para botones */
+
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+button:hover::after,
+button:focus::after {
+  left: 125%;
+}
+
+/* Inputs radio y check */
+
+label > input[type="radio"],
+label > input[type="checkbox"] {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* Responsive para preguntas del test */
+
+.question {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #f1f8e9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #c5e1a5;
+}
+
+.question h3 {
+  margin-bottom: 1rem;
+}
+
+/* Canvas personalizado */
+
+canvas#network {
+  display: block;
+  width: 100%;
+  height: 180px;
+  background-color: #121212; /* si usas fondo oscuro */
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
