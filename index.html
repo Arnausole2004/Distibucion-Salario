@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mi camino hacia el millón - Finanzas inteligentes</title>
+  <title>Mi camino hacia el millón</title>
 
   <!-- Google Fonts + Iconos -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -19,80 +19,73 @@
 <body>
 
   <!-- HEADER PRINCIPAL -->
-  <header class="tech-header">
-    <h1>Mi camino hacia el millón<br />Organiza, ahorra e invierte inteligentemente</h1>
-    <canvas id="network"></canvas>
+  <header class="tech-header" style="position: relative; height: 300px; overflow: hidden;">
+    <canvas id="network" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block;"></canvas>
+    <h1 style="
+      position: relative;
+      z-index: 10;
+      color: white;
+      font-weight: 700;
+      font-size: 2.5rem;
+      text-align: center;
+      padding-top: 100px;
+      text-shadow: 0 0 15px rgba(0,0,0,0.8);
+      max-width: 900px;
+      margin: 0 auto;
+    ">
+      Mi camino hacia el millón<br />
+      Organiza, ahorra e invierte inteligentemente
+    </h1>
   </header>
 
   <!-- NAVBAR -->
   <header class="navbar horizontal">
     <div class="nav-container">
       <nav class="nav-links horizontal" aria-label="Menú principal">
-        <a href="inicio">Inicio</a>
-        <a href="distribucion">Distribución de salario</a>
-        <a href="calculadora">Calculadora de gastos</a>
-        <a href="simulador">Simulador de inversión</a>
-        <a href="retos">Retos de ahorro</a>
-        <a href="consejos">Consejos expertos</a>
-    
+        <a href="index.html">Inicio</a>
+        <a href="distribucion.html">Distribución de salario</a>
+        <a href="calculadora.html">Calculadora de gastos</a>
+        <a href="simulador.html">Simulador de inversión</a>
+        <a href="retos.html">Retos de ahorro</a>
+        <a href="consejos.html">Consejos expertos</a>
       </nav>
     </div>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL -->
+  <!-- SECCIÓN INTRODUCTORIA -->
   <main style="max-width: 900px; margin: 6rem auto 3rem; padding: 0 1rem; font-family: 'Poppins', sans-serif; color: #333;">
-    
-    <!-- INICIO -->
-    <section id="inicio" class="intro-section" aria-label="Introducción">
-      <h2 data-aos="fade-up">Inicio</h2>
-      <p data-aos="fade-up" data-aos-delay="100">
-        Bienvenido a tu guía para volverte millonario gestionando tu salario paso a paso. Usa el menú para navegar por cada área.
-      </p>
+    <section id="inicio" aria-label="Inicio">
+      <h2>Inicio</h2>
+      <p>Bienvenido a tu guía para volverte millonario gestionando tu salario paso a paso. Usa el menú para navegar por cada área.</p>
     </section>
 
-    <!-- DISTRIBUCIÓN DE SALARIO -->
-    <section id="distribucion" aria-label="Distribución de salario" style="margin-top: 3rem;">
-      <h2 data-aos="fade-right">Distribución de salario</h2>
-      <p data-aos="fade-right" data-aos-delay="100">
-        Aquí explicaremos cómo aplicar la regla del <strong>50/30/20</strong> para dividir tus ingresos y mantener un equilibrio financiero saludable.
-      </p>
+    <section id="distribucion" aria-label="Distribución de salario">
+      <h2>Distribución de salario</h2>
+      <p>Aquí explicaremos cómo aplicar la regla del 50/30/20 para dividir tus ingresos.</p>
     </section>
 
-    <!-- CALCULADORA DE GASTOS -->
-    <section id="calculadora" aria-label="Calculadora de gastos" style="margin-top: 3rem;">
-      <h2 data-aos="fade-left">Calculadora de gastos</h2>
-      <p data-aos="fade-left" data-aos-delay="100">
-        Introduce tu salario para calcular automáticamente cómo se reparte según la regla financiera y tomar mejores decisiones.
-      </p>
+    <section id="calculadora" aria-label="Calculadora de gastos">
+      <h2>Calculadora de gastos</h2>
+      <p>Introduce tu salario para calcular automáticamente cómo se reparte según la regla financiera.</p>
     </section>
 
-    <!-- SIMULADOR DE INVERSIÓN -->
-    <section id="simulador" aria-label="Simulador de inversión" style="margin-top: 3rem;">
-      <h2 data-aos="fade-up">Simulador de inversión</h2>
-      <p data-aos="fade-up" data-aos-delay="100">
-        Descubre cuánto podrías ganar si ahorras e inviertes con interés compuesto. Visualiza tu futuro financiero.
-      </p>
+    <section id="simulador" aria-label="Simulador de inversión">
+      <h2>Simulador de inversión</h2>
+      <p>Descubre cuánto podrías ganar si ahorras e inviertes con interés compuesto.</p>
     </section>
 
-    <!-- RETOS DE AHORRO -->
-    <section id="retos" aria-label="Retos de ahorro" style="margin-top: 3rem;">
-      <h2 data-aos="fade-right">Retos de ahorro</h2>
-      <p data-aos="fade-right" data-aos-delay="100">
-        Retos mensuales y técnicas divertidas para guardar más dinero sin darte cuenta y fortalecer tu hábito de ahorro.
-      </p>
+    <section id="retos" aria-label="Retos de ahorro">
+      <h2>Retos de ahorro</h2>
+      <p>Retos mensuales y técnicas divertidas para guardar más dinero sin darte cuenta.</p>
     </section>
 
-    <!-- CONSEJOS EXPERTOS -->
-    <section id="consejos" aria-label="Consejos expertos" style="margin-top: 3rem;">
-      <h2 data-aos="fade-left">Consejos expertos</h2>
-      <p data-aos="fade-left" data-aos-delay="100">
-        Ideas y advertencias reales de expertos financieros para construir riqueza con seguridad y conocimiento.
-      </p>
+    <section id="consejos" aria-label="Consejos expertos">
+      <h2>Consejos expertos</h2>
+      <p>Ideas y advertencias reales de expertos financieros para construir riqueza.</p>
     </section>
 
-    <!-- CONTACTO -->
     <section id="contacto" class="contacto-simple" aria-label="Formulario de contacto" style="margin-top: 3rem;">
-      <div class="contacto-box" data-aos="fade-up">
+      <div class="contacto-box">
         <h2 class="contact-title">Contacto</h2>
         <form class="contact-form" action="/tu-endpoint" method="POST">
           <label for="name">Nombre</label>
@@ -104,7 +97,7 @@
           <label for="message">Mensaje</label>
           <textarea id="message" name="message" placeholder="Escribe tu mensaje" required></textarea>
 
-          <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+          <button type="submit">Enviar</button>
         </form>
       </div>
     </section>
@@ -115,8 +108,6 @@
   <script src="js/main.js"></script>
 
   <script>
-    AOS.init({ duration: 700, easing: 'ease-in-out', once: true });
-
     const canvas = document.getElementById('network');
     const ctx = canvas.getContext('2d');
 
@@ -151,7 +142,7 @@
         for (let j = i + 1; j < points.length; j++) {
           const dist = distance(points[i], points[j]);
           if (dist < 120) {
-            ctx.strokeStyle = `rgba(0, 0, 0, ${1 - dist / 120})`;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 120})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(points[i].x, points[i].y);
@@ -162,7 +153,7 @@
       }
 
       points.forEach((p) => {
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = 'white';
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
         ctx.fill();
@@ -194,3 +185,4 @@
   </script>
 </body>
 </html>
+
