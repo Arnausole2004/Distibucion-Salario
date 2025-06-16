@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulador: Distribución de Salario para Volverte Millonario</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background: #f5f7fa;
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #004d40;
+    }
+    form {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+      margin-bottom: 2rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 0.4rem;
+      margin-bottom: 1rem;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button {
+      background: #00796b;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #004d40;
+    }
+    .result {
+      background: #e0f2f1;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #b2dfdb;
+      margin-bottom: 2rem;
+    }
+    .chart {
+      display: flex;
+      justify-content: space-around;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .bar {
+      flex: 1;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-radius: 5px;
+      color: white;
+      font-weight: 600;
+      text-align: center;
+      padding: 0.3rem 0;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    .bar.saving { background-color: #388e3c; }
+    .bar.investment { background-color: #1976d2; }
+    .bar.expenses { background-color: #d32f2f; }
+    small {
+      font-weight: 400;
+      margin-top: 0.5rem;
+      display: block;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simulador de Distribución de Salario para Volverte Millonario</h1>
+  <form id="salaryForm" aria-label="Formulario para calcular distribución de salario">
+    <label for="salary">Introduce tu salario mensual neto (€):</label>
+    <input type="number" id="salary" min="100" step="any" placeholder="Ejemplo: 2000" required />
+    
+    <label for="savingPercent">Porcentaje para ahorro (%):</label>
+    <input type="number" id="savingPercent" min="0" max="100" step="any" value="20" required />
+    
+    <label for="investmentPercent">Porcentaje para inversión (%):</label>
+    <input type="number" id="investmentPercent" min="0" max="100" step="any" value="30" required />
+    
+    <label for="expensesPercent">Porcentaje para gastos (%):</label>
+    <input type="number" id="expensesPercent" min="0" max="100" step="any" value="50" required />
+    
+    <button type="submit">Calcular</button>
+  </form>
+
+  <section id="resultSection" aria-live="polite" aria-atomic="true" style="display:none;">
+    <div class="result" id="results"></div>
+    <div class="chart" aria-label="Distribución gráfica del salario">
+      <div class="bar saving" id="barSaving">Ahorro</div>
+      <div class="bar investment" id="barInvestment">Inversión</div>
+      <div class="bar expenses" id="barExpenses">Gastos</div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('salaryForm');
+    const resultSection = document.getElementById('resultSection');
+    const resultsDiv = document.getElementById('results');
+    const barSaving = document.getElementById('barSaving');
+    const barInvestment = document.getElementById('barInvestment');
+    const barExpenses = document.getElementById('barExpenses');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const salary = parseFloat(form.salary.value);
+      let savingPercent = parseFloat(form.savingPercent.value);
+      let investmentPercent = parseFloat(form.investmentPercent.value);
+      let expensesPercent = parseFloat(form.expensesPercent.value);
+
+      // Validar suma 100%
+      const totalPercent = savingPercent + investmentPercent + expensesPercent;
+      if (totalPercent !== 100) {
+        alert('La suma de los porcentajes debe ser 100%');
+        return;
+      }
+
+      // Cálculos básicos
+      const savingAmount = salary * (savingPercent / 100);
+      const investmentAmount = salary * (investmentPercent / 100);
+      const expensesAmount = salary * (expensesPercent / 100);
+
+      // Suponemos tasa de rentabilidad promedio anual del 8% en inversiones compuestas
+      const annualReturn = 0.08;
+      // Objetivo: 1 millón de euros
+      const goal = 1000000;
+
+      // Calculamos tiempo para alcanzar el objetivo con inversión mensual y ahorro aparte (simplificado)
+      // Usamos fórmula aproximada para inversión compuesta mensual (con aportes mensuales)
+      // FV = P * [ ((1 + r)^n - 1) / r ], despejamos n (meses)
+      // r = monthly interest rate
+      const r = annualReturn / 12;
+      const P = investmentAmount;
+      let n = 0;
+      if (P > 0 && r > 0) {
+        n = Math.log((goal * r / P) + 1) / Math.log(1 + r);
+      } else {
+        n = Infinity;
+      }
+      const yearsToMillion = (n / 12).toFixed(1);
+
+      // Mostrar resultados
+      resultsDiv.innerHTML = `
+        <p><strong>Distribución mensual (€):</strong></p>
+        <ul>
+          <li>Ahorro: €${savingAmount.toFixed(2)}</li>
+          <li>Inversión: €${investmentAmount.toFixed(2)}</li>
+          <li>Gastos: €${expensesAmount.toFixed(2)}</li>
+        </ul>
+        <p><strong>Tiempo estimado para alcanzar 1 millón € invirtiendo ${investmentAmount.toFixed(2)} € al mes con un 8% anual compuesto:</strong> ${isFinite(yearsToMillion) ? yearsToMillion + ' años' : 'No es posible con estos datos'}</p>
+      `;
+
+      // Actualizar gráfico
+      barSaving.style.height = savingPercent + '%';
+      barSaving.textContent = `Ahorro\n€${savingAmount.toFixed(0)}`;
+      barInvestment.style.height = investmentPercent + '%';
+      barInvestment.textContent = `Inversión\n€${investmentAmount.toFixed(0)}`;
+      barExpenses.style.height = expensesPercent + '%';
+      barExpenses.textContent = `Gastos\n€${expensesAmount.toFixed(0)}`;
+
+      resultSection.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
