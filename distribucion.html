@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Distribución de tu Salario - FitFinance</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome para iconos -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Menú principal">
+    <ul class="nav-container">
+    <a href="index.html">Inicio</a>
+    <a href="distribucion.html" aria-current="page">Distribución de salario</a>
+    <a href="#calculadora">Calculadora de gastos</a>
+    <a href="#simulador">Simulador de inversión</a>
+    <a href="#retos">Retos de ahorro</a>
+    <a href="#consejos">Consejos expertos</a>
+    </ul>
+  </nav>
+
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+    <h1>Distribución inteligente de tu salario</h1>
+    <p>Introduce tu ingreso mensual y descubre cómo distribuirlo inteligentemente según la regla 50/30/20.</p>
+
+    <form id="salary-form" style="max-width: 400px; margin-top: 2rem;">
+      <label for="salary">Salario mensual (€):</label><br />
+      <input
+        type="number"
+        id="salary"
+        name="salary"
+        required
+        min="0"
+        placeholder="Ej. 2000"
+        style="padding: 0.5rem; width: 100%; margin: 1rem 0;"
+      />
+      <button
+        type="submit"
+        style="
+          padding: 0.7rem 1.5rem;
+          background-color: #00b300;
+          border: none;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 4px;
+        "
+      >
+        Calcular
+      </button>
+    </form>
+
+    <div id="resultados" style="margin-top: 2rem; font-size: 1.2rem;"></div>
+  </main>
+
+  <footer role="contentinfo" style="text-align:center; margin-top:4rem; padding:1rem 0; background:#f0f0f0;">
+    &copy; 2025 FitFinance Investments. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    document.getElementById('salary-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const salary = parseFloat(document.getElementById('salary').value);
+
+      if (isNaN(salary) || salary <= 0) {
+        document.getElementById('resultados').innerHTML = "<p style='color: red;'>Por favor, introduce un salario válido.</p>";
+        return;
+      }
+
+      const necesidades = salary * 0.5;
+      const deseos = salary * 0.3;
+      const ahorro = salary * 0.2;
+
+      document.getElementById('resultados').innerHTML = `
+        <p><strong>50% Necesidades:</strong> ${necesidades.toFixed(2)} €</p>
+        <p><strong>30% Deseos:</strong> ${deseos.toFixed(2)} €</p>
+        <p><strong>20% Ahorro / Inversión:</strong> ${ahorro.toFixed(2)} €</p>
+      `;
+    });
+  </script>
+</body>
+
+</html>
