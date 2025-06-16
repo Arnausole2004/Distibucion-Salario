@@ -1,79 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mi camino hacia el millón - Finanzas inteligentes y ahorro</title>
-  <meta name="description" content="Guía paso a paso para organizar tu salario, ahorrar con propósito e invertir inteligentemente para alcanzar tu primer millón." />
-  <meta name="author" content="Peke" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <title>Mi camino hacia el millón - Finanzas inteligentes</title>
+
+  <!-- Google Fonts + Iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" />
+
+  <!-- Estilos propios -->
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
 
-  <!-- Navegación principal -->
-  <header role="banner" class="navbar">
-    <nav role="navigation" aria-label="Menú principal" class="nav-container">
-      <ul class="nav-links horizontal">
-        <li><a href="inicio" class="nav-link" tabindex="0">Inicio</a></li>
-        <li><a href="distribucion" class="nav-link" tabindex="0">Distribución de salario</a></li>
-        <li><a href="calculadora" class="nav-link" tabindex="0">Calculadora de gastos</a></li>
-        <li><a href="simulador" class="nav-link" tabindex="0">Simulador de inversión</a></li>
-        <li><a href="retos" class="nav-link" tabindex="0">Retos de ahorro</a></li>
-        <li><a href="consejos" class="nav-link" tabindex="0">Consejos expertos</a></li>
-    
-      </ul>
-    </nav>
+  <!-- HEADER PRINCIPAL -->
+  <header class="tech-header">
+    <h1>Mi camino hacia el millón<br />Organiza, ahorra e invierte inteligentemente</h1>
+    <canvas id="network"></canvas>
   </header>
 
-  <!-- Encabezado principal -->
-  <main>
-    <section class="tech-header" aria-labelledby="main-title">
-      <h1 id="main-title">Mi camino hacia el millón</h1>
-      <p>Organiza tu salario, ahorra con propósito e invierte inteligentemente.</p>
+  <!-- NAVBAR -->
+  <header class="navbar horizontal">
+    <div class="nav-container">
+      <nav class="nav-links horizontal" aria-label="Menú principal">
+        <a href="inicio">Inicio</a>
+        <a href="distribucion">Distribución de salario</a>
+        <a href="calculadora">Calculadora de gastos</a>
+        <a href="simulador">Simulador de inversión</a>
+        <a href="retos">Retos de ahorro</a>
+        <a href="consejos">Consejos expertos</a>
+    
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main style="max-width: 900px; margin: 6rem auto 3rem; padding: 0 1rem; font-family: 'Poppins', sans-serif; color: #333;">
+    
+    <!-- INICIO -->
+    <section id="inicio" class="intro-section" aria-label="Introducción">
+      <h2 data-aos="fade-up">Inicio</h2>
+      <p data-aos="fade-up" data-aos-delay="100">
+        Bienvenido a tu guía para volverte millonario gestionando tu salario paso a paso. Usa el menú para navegar por cada área.
+      </p>
     </section>
 
-    <!-- Secciones informativas -->
-    <section id="inicio" tabindex="-1" aria-labelledby="inicio-title">
-      <h2 id="inicio-title">Inicio</h2>
-      <p>Bienvenido a tu guía para volverte millonario gestionando tu salario paso a paso. Usa el menú para navegar por cada área.</p>
+    <!-- DISTRIBUCIÓN DE SALARIO -->
+    <section id="distribucion" aria-label="Distribución de salario" style="margin-top: 3rem;">
+      <h2 data-aos="fade-right">Distribución de salario</h2>
+      <p data-aos="fade-right" data-aos-delay="100">
+        Aquí explicaremos cómo aplicar la regla del <strong>50/30/20</strong> para dividir tus ingresos y mantener un equilibrio financiero saludable.
+      </p>
     </section>
 
-    <section id="distribucion" tabindex="-1" aria-labelledby="distribucion-title">
-      <h2 id="distribucion-title">Distribución de salario</h2>
-      <p>Aquí explicaremos cómo aplicar la regla del 50/30/20 para dividir tus ingresos.</p>
+    <!-- CALCULADORA DE GASTOS -->
+    <section id="calculadora" aria-label="Calculadora de gastos" style="margin-top: 3rem;">
+      <h2 data-aos="fade-left">Calculadora de gastos</h2>
+      <p data-aos="fade-left" data-aos-delay="100">
+        Introduce tu salario para calcular automáticamente cómo se reparte según la regla financiera y tomar mejores decisiones.
+      </p>
     </section>
 
-    <section id="calculadora" tabindex="-1" aria-labelledby="calculadora-title">
-      <h2 id="calculadora-title">Calculadora de gastos</h2>
-      <p>Introduce tu salario para calcular automáticamente cómo se reparte según la regla financiera.</p>
+    <!-- SIMULADOR DE INVERSIÓN -->
+    <section id="simulador" aria-label="Simulador de inversión" style="margin-top: 3rem;">
+      <h2 data-aos="fade-up">Simulador de inversión</h2>
+      <p data-aos="fade-up" data-aos-delay="100">
+        Descubre cuánto podrías ganar si ahorras e inviertes con interés compuesto. Visualiza tu futuro financiero.
+      </p>
     </section>
 
-    <section id="simulador" tabindex="-1" aria-labelledby="simulador-title">
-      <h2 id="simulador-title">Simulador de inversión</h2>
-      <p>Descubre cuánto podrías ganar si ahorras e inviertes con interés compuesto.</p>
+    <!-- RETOS DE AHORRO -->
+    <section id="retos" aria-label="Retos de ahorro" style="margin-top: 3rem;">
+      <h2 data-aos="fade-right">Retos de ahorro</h2>
+      <p data-aos="fade-right" data-aos-delay="100">
+        Retos mensuales y técnicas divertidas para guardar más dinero sin darte cuenta y fortalecer tu hábito de ahorro.
+      </p>
     </section>
 
-    <section id="retos" tabindex="-1" aria-labelledby="retos-title">
-      <h2 id="retos-title">Retos de ahorro</h2>
-      <p>Retos mensuales y técnicas divertidas para guardar más dinero sin darte cuenta.</p>
+    <!-- CONSEJOS EXPERTOS -->
+    <section id="consejos" aria-label="Consejos expertos" style="margin-top: 3rem;">
+      <h2 data-aos="fade-left">Consejos expertos</h2>
+      <p data-aos="fade-left" data-aos-delay="100">
+        Ideas y advertencias reales de expertos financieros para construir riqueza con seguridad y conocimiento.
+      </p>
     </section>
 
-    <section id="consejos" tabindex="-1" aria-labelledby="consejos-title">
-      <h2 id="consejos-title">Consejos expertos</h2>
-      <p>Ideas y advertencias reales de expertos financieros para construir riqueza.</p>
-    </section>
+    <!-- CONTACTO -->
+    <section id="contacto" class="contacto-simple" aria-label="Formulario de contacto" style="margin-top: 3rem;">
+      <div class="contacto-box" data-aos="fade-up">
+        <h2 class="contact-title">Contacto</h2>
+        <form class="contact-form" action="/tu-endpoint" method="POST">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre" required />
 
-    <section id="contacto" tabindex="-1" aria-labelledby="contacto-title">
-      <h2 id="contacto-title">Contacto</h2>
-      <p>¿Tienes preguntas? Escríbenos y te ayudamos con tu estrategia financiera.</p>
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" placeholder="Escribe tu mensaje" required></textarea>
+
+          <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+        </form>
+      </div>
     </section>
   </main>
 
-  <!-- Pie de página -->
-  <footer role="contentinfo" aria-label="Información de copyright">
-    &copy; 2025 - Tu Web Financiera. Todos los derechos reservados.
-  </footer>
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
 
+  <script>
+    AOS.init({ duration: 700, easing: 'ease-in-out', once: true });
+
+    const canvas = document.getElementById('network');
+    const ctx = canvas.getContext('2d');
+
+    let points = [];
+    let width, height;
+
+    function resizeCanvas() {
+      width = canvas.width = canvas.clientWidth;
+      height = canvas.height = canvas.clientHeight;
+    }
+
+    function initPoints() {
+      points = [];
+      for (let i = 0; i < 60; i++) {
+        points.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5
+        });
+      }
+    }
+
+    function distance(p1, p2) {
+      return Math.hypot(p1.x - p2.x, p1.y - p2.y);
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+          const dist = distance(points[i], points[j]);
+          if (dist < 120) {
+            ctx.strokeStyle = `rgba(0, 0, 0, ${1 - dist / 120})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(points[i].x, points[i].y);
+            ctx.lineTo(points[j].x, points[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      points.forEach((p) => {
+        ctx.fillStyle = 'black';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      points.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    function start() {
+      resizeCanvas();
+      initPoints();
+      draw();
+    }
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initPoints();
+    });
+
+    start();
+  </script>
 </body>
 </html>
