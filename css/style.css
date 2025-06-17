@@ -75,7 +75,7 @@ header.tech-header p {
 .nav-links {
   display: flex;
   flex-direction: row;
-  gap: 1.5rem; /* espacio moderado */
+  gap: 3rem; /* espacio moderado */
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
@@ -84,13 +84,12 @@ header.tech-header p {
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 1rem; /* letra más pequeña */
+  font-size: 0.85rem; /* letra más pequeña */
   font-weight: 400;
   position: relative;
   transition: color 0.3s ease;
   letter-spacing: 0.05em;
   padding: 0.3rem 0;
-  animation: colorPulse 4s infinite ease-in-out;
 }
 
 .nav-links a::after {
@@ -113,16 +112,6 @@ header.tech-header p {
 .nav-links a:focus::after {
   width: 100%;
 }
-
-@keyframes colorPulse {
-  0%, 100% {
-    color: #fff;
-  }
-  50% {
-    color: #bbb;
-  }
-}
-
 
 
 /* Secciones */
