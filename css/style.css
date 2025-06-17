@@ -62,9 +62,9 @@ header.tech-header p {
 }
 
 .navbar {
-  background-color: #121212;
+  background-color: #000000; /* fondo negro absoluto */
   padding: 0.7rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 
 .nav-container {
@@ -90,6 +90,7 @@ header.tech-header p {
   transition: color 0.3s ease;
   letter-spacing: 0.05em;
   padding: 0.3rem 0;
+  animation: colorPulse 4s infinite ease-in-out;
 }
 
 .nav-links a::after {
@@ -120,10 +121,6 @@ header.tech-header p {
   50% {
     color: #bbb;
   }
-}
-
-.nav-links a {
-  animation: colorPulse 4s infinite ease-in-out;
 }
 
 
