@@ -1,28 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Calculadora de Interés Compuesto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Interés Compuesto - FitFinance</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">FitFinance</a>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="distribucion.html">Distribución de Salario</a>
+        <a href="calculadora.html" aria-current="page">Interés Compuesto</a>
+        <a href="simulador.html">Simulador de Inversión</a>
+        <a href="educacion-financiera.html">Educación Financiera</a>
+      </nav>
+    </div>
+  </header>
 
-  <nav aria-label="Navegación principal">
-    <a href="index.html">Inicio</a>
-    <a href="distribucion.html">Distribución de Salario</a>
-    <a href="interes-compuesto.html" aria-current="page">Calculadora Interés Compuesto</a>
-    <a href="educacion-financiera.html">Educación Financiera</a>
-  </nav>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Calculadora de Interés Compuesto</h1>
+        <p>Descubre el poder del interés compuesto y cómo puede hacer crecer tu dinero a lo largo del tiempo. Esta calculadora te ayudará a visualizar tu crecimiento financiero según tus inversiones.</p>
+      </div>
+    </section>
 
-  <h1>Calculadora de Interés Compuesto</h1>
+    <section class="info-section">
+      <h2>¿Qué es el interés compuesto?</h2>
+      <p>El interés compuesto es una poderosa herramienta financiera que permite que tus inversiones crezcan de forma exponencial. A diferencia del interés simple, donde solo se gana interés sobre el capital inicial, el interés compuesto genera interés sobre el capital y también sobre los intereses acumulados en cada periodo.</p>
+      <p>Este efecto "bola de nieve" se potencia cuanto mayor es el número de periodos y la frecuencia con la que se capitalizan los intereses (mensual, trimestral, anual, etc.).</p>
+      <p>Invertir a largo plazo y comenzar temprano es la clave para aprovechar al máximo el interés compuesto.</p>
+    </section>
 
-  <form id="compound-form" aria-describedby="result">
-    <label for="principal">Capital inicial (€):</label>
-    <input type="number" id="principal" name="principal" min="0" step="0.01" required placeholder="Ej: 1000" />
+    <section class="info-section">
+      <h2>Calcula tus ganancias</h2>
+      <form id="compound-form" class="formulario">
+        <label for="principal">Capital inicial (€):</label>
+        <input type="number" id="principal" name="principal" min="0" step="0.01" placeholder="Ej: 1000" required />
 
-    <label for="rate">Tasa de interés anual (%):</label>
-    <input type="number" id="rate" name="rate" min="0" step="0.01" required placeholder="Ej: 5" />
+        <label for="rate">Tasa de interés anual (%):</label>
+        <input type="number" id="rate" name="rate" min="0" step="0.01" placeholder="Ej: 5" required />
 
-    <label for="times">Número de ve
+        <label for="years">Años de inversión:</label>
+        <input type="number" id="years" name="years" min="1" step="1" placeholder="Ej: 10" required />
+
+        <label for="compounded">Frecuencia de capitalización:</label>
+        <select id="compounded" name="compounded" required>
+          <option value="1">Anualmente</option>
+          <option value="2">Semestralmente</option>
+          <option value="4">Trimestralmente</option>
+          <option value="12">Mensualmente</option>
+        </select>
+
+        <button type="submit" class="btn-descarga">Calcular</button>
+      </form>
+
+      <div id="resultados" style="margin-top:2rem; font-size: 1.1rem;"></div>
+    </section>
+
+    <section class="info-section">
+      <h2>¿Por qué es importante el interés compuesto?</h2>
+      <ul>
+        <li>Permite generar riqueza a largo plazo con un esfuerzo constante.</li>
+        <li>Es ideal para metas como la jubilación, estudios o la compra de una vivienda.</li>
+        <li>Cuanto antes comiences a invertir, mayores serán los beneficios.</li>
+      </ul>
+      <p>No subestimes el poder de empezar con poco. Incluso cantidades pequeñas, con el tiempo y una buena tasa de interés, pueden convertirse en sumas significativas.</p>
+    </section>
+
+    <section class="descarga">
+      <a href="simulador.html" class="btn-descarga">Simular inversiones con aportes mensuales</a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 FitFinance. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    document.getElementById("compound-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const principal = parseFloat(document.getElementById("principal").value);
+      const rate = parseFloat(document.getElementById("rate").value);
+      const years = parseFloat(document.getElementById("years").value);
+      const compounded = parseInt(document.getElementById("compounded").value);
+
+      if (isNaN(principal) || principal <= 0 ||
+          isNaN(rate) || rate <= 0 ||
+          isNaN(years) || years <= 0 ||
+          isNaN(compounded) || compounded <= 0) {
+        document.getElementById("resultados").innerHTML = "<p style='color: red;'>Por favor, introduce todos los valores correctamente.</p>";
+        return;
+      }
+
+      const finalAmount = principal * Math.pow((1 + (rate / 100) / compounded), compounded * years);
+      const interest = finalAmount - principal;
+
+      document.getElementById("resultados").innerHTML = `
+        <p><strong>Monto Final:</strong> €${finalAmount.toFixed(2)}</p>
+        <p><strong>Interés Ganado:</strong> €${interest.toFixed(2)}</p>
+      `;
+    });
+  </script>
+</body>
+
+</html>
