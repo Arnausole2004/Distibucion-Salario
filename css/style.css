@@ -61,58 +61,43 @@ header.tech-header p {
   text-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-/* Navbar fijo arriba */
-header.navbar {
-  position: sticky;
-  top: 0;
-  background: #ffffffee;
-  backdrop-filter: saturate(180%) blur(15px);
-  border-bottom: 3px solid #4caf50;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  z-index: 999;
-  padding: 0.8rem 1rem;
-  user-select: none;
+/* NAVBAR OSCURO */
+.navbar {
+  background-color: #111;
+  border-bottom: 1px solid #333;
+  padding: 1rem 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .nav-container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-nav.nav-links.horizontal {
+.nav-links {
   display: flex;
-  gap: 1.6rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
-nav.nav-links.horizontal a.nav-link {
-  font-weight: 600;
+.nav-links a {
+  color: #ccc;
   text-decoration: none;
-  color: #2f3e2f;
-  padding: 0.5rem 1.3rem;
-  border-radius: 8px;
-  background: #dceddb;
-  box-shadow: 0 3px 8px rgba(75, 150, 75, 0.15);
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.2s ease;
-  font-size: 1rem;
-  cursor: pointer;
-  user-select: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
 }
 
-nav.nav-links.horizontal a.nav-link:hover,
-nav.nav-links.horizontal a.nav-link:focus {
+.nav-links a:hover {
   color: #fff;
-  background: #4caf50;
-  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
-  transform: translateY(-3px);
-  outline: none;
+  background-color: #222;
 }
+
 
 /* Secciones */
 section {
