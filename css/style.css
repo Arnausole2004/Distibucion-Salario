@@ -224,3 +224,18 @@ form button:hover {
     max-width: 200px;
   }
 }
+
+/* Red neuronal animada - corrección de color */
+canvas,
+.background-animation canvas,
+.network-background,
+#network,
+#neural-network-animation {
+  filter: brightness(0); /* Convierte todo lo blanco en negro */
+  pointer-events: none;  /* Por si bloquea clics */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Mantiene el canvas detrás del contenido */
+}
+
