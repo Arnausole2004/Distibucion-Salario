@@ -13,11 +13,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" />
 
   <!-- Estilos propios -->
+  <!-- Estilos generales de layout, tipografía y estructura -->
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Estilos específicos para el menú de navegación -->
   <link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
-
 
 <!-- HEADER PRINCIPAL SIN BORDES REDONDEADOS Y CON TÍTULO CENTRADO -->
 <header class="tech-header" style="
@@ -57,8 +58,8 @@
   </h1>
 </header>
 
-
- <header class="navbar horizontal">
+<!-- Menú de navegación (estilado con app.css) -->
+<header class="navbar horizontal">
   <div class="nav-container">
     <nav class="nav-links horizontal" aria-label="Menú principal">
       <a href="index.html">Inicio</a>
@@ -71,141 +72,137 @@
   </div>
 </header>
 
+<!-- SECCIÓN INTRODUCTORIA -->
+<main style="max-width: 900px; margin: 6rem auto 3rem; padding: 0 1rem; font-family: 'Poppins', sans-serif; color: #333;">
+  <section id="inicio" aria-label="Inicio">
+    <h2>Inicio</h2>
+    <p>Bienvenido a tu guía para volverte millonario gestionando tu salario paso a paso. Usa el menú para navegar por cada área.</p>
+  </section>
 
+  <section id="distribucion" aria-label="Distribución de salario">
+    <h2>Distribución de salario</h2>
+    <p>Aquí explicaremos cómo aplicar la regla del 50/30/20 para dividir tus ingresos.</p>
+  </section>
 
+  <section id="calculadora" aria-label="Calculadora de gastos">
+    <h2>Calculadora de gastos</h2>
+    <p>Introduce tu salario para calcular automáticamente cómo se reparte según la regla financiera.</p>
+  </section>
 
+  <section id="simulador" aria-label="Simulador de inversión">
+    <h2>Simulador de inversión</h2>
+    <p>Descubre cuánto podrías ganar si ahorras e inviertes con interés compuesto.</p>
+  </section>
 
-  <!-- SECCIÓN INTRODUCTORIA -->
-  <main style="max-width: 900px; margin: 6rem auto 3rem; padding: 0 1rem; font-family: 'Poppins', sans-serif; color: #333;">
-    <section id="inicio" aria-label="Inicio">
-      <h2>Inicio</h2>
-      <p>Bienvenido a tu guía para volverte millonario gestionando tu salario paso a paso. Usa el menú para navegar por cada área.</p>
-    </section>
+  <section id="retos" aria-label="Retos de ahorro">
+    <h2>Retos de ahorro</h2>
+    <p>Retos mensuales y técnicas divertidas para guardar más dinero sin darte cuenta.</p>
+  </section>
 
-    <section id="distribucion" aria-label="Distribución de salario">
-      <h2>Distribución de salario</h2>
-      <p>Aquí explicaremos cómo aplicar la regla del 50/30/20 para dividir tus ingresos.</p>
-    </section>
+  <section id="consejos" aria-label="Consejos expertos">
+    <h2>Consejos expertos</h2>
+    <p>Ideas y advertencias reales de expertos financieros para construir riqueza.</p>
+  </section>
 
-    <section id="calculadora" aria-label="Calculadora de gastos">
-      <h2>Calculadora de gastos</h2>
-      <p>Introduce tu salario para calcular automáticamente cómo se reparte según la regla financiera.</p>
-    </section>
+  <section id="contacto" class="contacto-simple" aria-label="Formulario de contacto" style="margin-top: 3rem;">
+    <div class="contacto-box">
+      <h2 class="contact-title">Contacto</h2>
+      <form class="contact-form" action="/tu-endpoint" method="POST">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" placeholder="Tu nombre" required />
 
-    <section id="simulador" aria-label="Simulador de inversión">
-      <h2>Simulador de inversión</h2>
-      <p>Descubre cuánto podrías ganar si ahorras e inviertes con interés compuesto.</p>
-    </section>
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
 
-    <section id="retos" aria-label="Retos de ahorro">
-      <h2>Retos de ahorro</h2>
-      <p>Retos mensuales y técnicas divertidas para guardar más dinero sin darte cuenta.</p>
-    </section>
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" placeholder="Escribe tu mensaje" required></textarea>
 
-    <section id="consejos" aria-label="Consejos expertos">
-      <h2>Consejos expertos</h2>
-      <p>Ideas y advertencias reales de expertos financieros para construir riqueza.</p>
-    </section>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+</main>
 
-    <section id="contacto" class="contacto-simple" aria-label="Formulario de contacto" style="margin-top: 3rem;">
-      <div class="contacto-box">
-        <h2 class="contact-title">Contacto</h2>
-        <form class="contact-form" action="/tu-endpoint" method="POST">
-          <label for="name">Nombre</label>
-          <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
 
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+<script>
+  const canvas = document.getElementById('network');
+  const ctx = canvas.getContext('2d');
 
-          <label for="message">Mensaje</label>
-          <textarea id="message" name="message" placeholder="Escribe tu mensaje" required></textarea>
+  let points = [];
+  let width, height;
 
-          <button type="submit">Enviar</button>
-        </form>
-      </div>
-    </section>
-  </main>
+  function resizeCanvas() {
+    width = canvas.width = canvas.clientWidth;
+    height = canvas.height = canvas.clientHeight;
+  }
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
-
-  <script>
-    const canvas = document.getElementById('network');
-    const ctx = canvas.getContext('2d');
-
-    let points = [];
-    let width, height;
-
-    function resizeCanvas() {
-      width = canvas.width = canvas.clientWidth;
-      height = canvas.height = canvas.clientHeight;
+  function initPoints() {
+    points = [];
+    for (let i = 0; i < 60; i++) {
+      points.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5
+      });
     }
+  }
 
-    function initPoints() {
-      points = [];
-      for (let i = 0; i < 60; i++) {
-        points.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5
-        });
-      }
-    }
+  function distance(p1, p2) {
+    return Math.hypot(p1.x - p2.x, p1.y - p2.y);
+  }
 
-    function distance(p1, p2) {
-      return Math.hypot(p1.x - p2.x, p1.y - p2.y);
-    }
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
 
-    function draw() {
-      ctx.clearRect(0, 0, width, height);
-
-      for (let i = 0; i < points.length; i++) {
-        for (let j = i + 1; j < points.length; j++) {
-          const dist = distance(points[i], points[j]);
-          if (dist < 120) {
-            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 120})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(points[i].x, points[i].y);
-            ctx.lineTo(points[j].x, points[j].y);
-            ctx.stroke();
-          }
+    for (let i = 0; i < points.length; i++) {
+      for (let j = i + 1; j < points.length; j++) {
+        const dist = distance(points[i], points[j]);
+        if (dist < 120) {
+          ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 120})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(points[i].x, points[i].y);
+          ctx.lineTo(points[j].x, points[j].y);
+          ctx.stroke();
         }
       }
-
-      points.forEach((p) => {
-        ctx.fillStyle = 'white';
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      points.forEach((p) => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
-      });
-
-      requestAnimationFrame(draw);
     }
 
-    function start() {
-      resizeCanvas();
-      initPoints();
-      draw();
-    }
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      initPoints();
+    points.forEach((p) => {
+      ctx.fillStyle = 'white';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+      ctx.fill();
     });
 
-    start();
-  </script>
+    points.forEach((p) => {
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  function start() {
+    resizeCanvas();
+    initPoints();
+    draw();
+  }
+
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    initPoints();
+  });
+
+  start();
+</script>
+
 </body>
 </html>
-
