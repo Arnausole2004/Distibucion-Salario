@@ -1,106 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Simulador: Distribución de Salario para Volverte Millonario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Inversión - FitFinance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/app.css">
 </head>
-<body>
-  <h1>Simulador de Distribución de Salario para Volverte Millonario</h1>
-  <form id="salaryForm" aria-label="Formulario para calcular distribución de salario">
-    <label for="salary">Introduce tu salario mensual neto (€):</label>
-    <input type="number" id="salary" min="100" step="any" placeholder="Ejemplo: 2000" required />
-    
-    <label for="savingPercent">Porcentaje para ahorro (%):</label>
-    <input type="number" id="savingPercent" min="0" max="100" step="any" value="20" required />
-    
-    <label for="investmentPercent">Porcentaje para inversión (%):</label>
-    <input type="number" id="investmentPercent" min="0" max="100" step="any" value="30" required />
-    
-    <label for="expensesPercent">Porcentaje para gastos (%):</label>
-    <input type="number" id="expensesPercent" min="0" max="100" step="any" value="50" required />
-    
-    <button type="submit">Calcular</button>
-  </form>
 
-  <section id="resultSection" aria-live="polite" aria-atomic="true" style="display:none;">
-    <div class="result" id="results"></div>
-    <div class="chart" aria-label="Distribución gráfica del salario">
-      <div class="bar saving" id="barSaving">Ahorro</div>
-      <div class="bar investment" id="barInvestment">Inversión</div>
-      <div class="bar expenses" id="barExpenses">Gastos</div>
+<body>
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">FitFinance</a>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="distribucion.html">Distribución</a>
+        <a href="calculadora.html">Calculadora</a>
+        <a href="simulador.html" aria-current="page">Simulador</a>
+        <a href="educacion-financiera.html">Educación</a>
+      </nav>
     </div>
-  </section>
+  </header>
+
+  <main class="container" style="padding: 2rem 1rem;">
+    <section>
+      <h1>Simulador de Inversión</h1>
+      <p>Proyecta el crecimiento de tu inversión a lo largo de los años con aportaciones mensuales y tasa de interés compuesta.</p>
+    </section>
+
+    <section class="info-section">
+      <h2>¿Cómo funciona?</h2>
+      <p>El simulador tiene en cuenta una inversión inicial, un aporte mensual constante y una tasa de interés anual. Utiliza la fórmula de interés compuesto aplicada mes a mes para mostrarte el saldo estimado al final de cada año.</p>
+    </section>
+
+    <section class="info-section">
+      <h2>Calcula tu crecimiento</h2>
+      <form id="simulador-form" style="max-width: 600px; margin-top: 1rem;">
+        <label for="inversionInicial">Inversión inicial (€):</label>
+        <input type="number" id="inversionInicial" required min="0" placeholder="Ej: 1000">
+
+        <label for="aporteMensual">Aporte mensual (€):</label>
+        <input type="number" id="aporteMensual" required min="0" placeholder="Ej: 200">
+
+        <label for="tasaAnual">Tasa de interés anual (%):</label>
+        <input type="number" id="tasaAnual" required min="0" step="0.1" placeholder="Ej: 6">
+
+        <label for="años">Años de inversión:</label>
+        <input type="number" id="años" required min="1" max="50" placeholder="Ej: 10">
+
+        <button type="submit" class="btn-descarga" style="margin-top: 1rem;">Simular</button>
+      </form>
+
+      <div id="resultSimulador" style="margin-top: 2rem;"></div>
+    </section>
+
+    <section class="info-section">
+      <h2>¿Por qué es importante simular?</h2>
+      <p>Planificar tu futuro financiero con simulaciones te ayuda a visualizar tus metas. Puedes ajustar el monto invertido, la tasa o el tiempo para ver diferentes escenarios.</p>
+    </section>
+
+    <section class="info-section">
+      <h2>Consejos para inversionistas</h2>
+      <ul>
+        <li>Comienza lo antes posible para maximizar los beneficios del interés compuesto.</li>
+        <li>Revisa y ajusta tu estrategia anualmente según tus metas.</li>
+        <li>Diversifica tus inversiones para mitigar riesgos.</li>
+        <li>Mantén constancia en los aportes mensuales.</li>
+      </ul>
+    </section>
+
+    <section class="descarga">
+      <a href="calculadora.html" class="btn-descarga">Ir a Calculadora de Interés</a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 FitFinance Investments. Todos los derechos reservados.
+  </footer>
 
   <script>
-    const form = document.getElementById('salaryForm');
-    const resultSection = document.getElementById('resultSection');
-    const resultsDiv = document.getElementById('results');
-    const barSaving = document.getElementById('barSaving');
-    const barInvestment = document.getElementById('barInvestment');
-    const barExpenses = document.getElementById('barExpenses');
-
-    form.addEventListener('submit', e => {
+    document.getElementById('simulador-form').addEventListener('submit', function (e) {
       e.preventDefault();
+      const inversionInicial = parseFloat(document.getElementById('inversionInicial').value);
+      const aporteMensual = parseFloat(document.getElementById('aporteMensual').value);
+      const tasaAnual = parseFloat(document.getElementById('tasaAnual').value);
+      const años = parseInt(document.getElementById('años').value);
 
-      const salary = parseFloat(form.salary.value);
-      let savingPercent = parseFloat(form.savingPercent.value);
-      let investmentPercent = parseFloat(form.investmentPercent.value);
-      let expensesPercent = parseFloat(form.expensesPercent.value);
-
-      // Validar suma 100%
-      const totalPercent = savingPercent + investmentPercent + expensesPercent;
-      if (totalPercent !== 100) {
-        alert('La suma de los porcentajes debe ser 100%');
+      if (isNaN(inversionInicial) || inversionInicial < 0 ||
+          isNaN(aporteMensual) || aporteMensual < 0 ||
+          isNaN(tasaAnual) || tasaAnual < 0 ||
+          isNaN(años) || años <= 0) {
+        document.getElementById('resultSimulador').innerHTML = "<p style='color:red;'>Introduce todos los datos correctamente.</p>";
         return;
       }
 
-      // Cálculos básicos
-      const savingAmount = salary * (savingPercent / 100);
-      const investmentAmount = salary * (investmentPercent / 100);
-      const expensesAmount = salary * (expensesPercent / 100);
+      const tasaMensual = tasaAnual / 100 / 12;
+      let saldo = inversionInicial;
+      let totalAportado = inversionInicial;
+      const saldoPorAño = [];
 
-      // Suponemos tasa de rentabilidad promedio anual del 8% en inversiones compuestas
-      const annualReturn = 0.08;
-      // Objetivo: 1 millón de euros
-      const goal = 1000000;
+      for (let i = 1; i <= años * 12; i++) {
+        saldo = saldo * (1 + tasaMensual) + aporteMensual;
+        totalAportado += aporteMensual;
 
-      // Calculamos tiempo para alcanzar el objetivo con inversión mensual y ahorro aparte (simplificado)
-      // Usamos fórmula aproximada para inversión compuesta mensual (con aportes mensuales)
-      // FV = P * [ ((1 + r)^n - 1) / r ], despejamos n (meses)
-      // r = monthly interest rate
-      const r = annualReturn / 12;
-      const P = investmentAmount;
-      let n = 0;
-      if (P > 0 && r > 0) {
-        n = Math.log((goal * r / P) + 1) / Math.log(1 + r);
-      } else {
-        n = Infinity;
+        if (i % 12 === 0) {
+          saldoPorAño.push({ año: i / 12, saldo: saldo.toFixed(2) });
+        }
       }
-      const yearsToMillion = (n / 12).toFixed(1);
 
-      // Mostrar resultados
-      resultsDiv.innerHTML = `
-        <p><strong>Distribución mensual (€):</strong></p>
-        <ul>
-          <li>Ahorro: €${savingAmount.toFixed(2)}</li>
-          <li>Inversión: €${investmentAmount.toFixed(2)}</li>
-          <li>Gastos: €${expensesAmount.toFixed(2)}</li>
-        </ul>
-        <p><strong>Tiempo estimado para alcanzar 1 millón € invirtiendo ${investmentAmount.toFixed(2)} € al mes con un 8% anual compuesto:</strong> ${isFinite(yearsToMillion) ? yearsToMillion + ' años' : 'No es posible con estos datos'}</p>
+      let tabla = '<table style="width:100%; border-collapse: collapse; margin-top:1rem;">';
+      tabla += '<thead><tr><th style="text-align:left; border-bottom: 1px solid #ccc;">Año</th><th style="text-align:right; border-bottom: 1px solid #ccc;">Saldo acumulado</th></tr></thead><tbody>';
+      saldoPorAño.forEach(({ año, saldo }) => {
+        tabla += `<tr><td style="padding: 0.5rem 0;">${año}</td><td style="text-align:right;">${saldo} €</td></tr>`;
+      });
+      tabla += '</tbody></table>';
+
+      document.getElementById('resultSimulador').innerHTML = `
+        <p><strong>Total aportado:</strong> ${totalAportado.toFixed(2)} €</p>
+        <p><strong>Saldo final estimado:</strong> ${saldo.toFixed(2)} €</p>
+        ${tabla}
       `;
-
-      // Actualizar gráfico
-      barSaving.style.height = savingPercent + '%';
-      barSaving.textContent = `Ahorro\n€${savingAmount.toFixed(0)}`;
-      barInvestment.style.height = investmentPercent + '%';
-      barInvestment.textContent = `Inversión\n€${investmentAmount.toFixed(0)}`;
-      barExpenses.style.height = expensesPercent + '%';
-      barExpenses.textContent = `Gastos\n€${expensesAmount.toFixed(0)}`;
-
-      resultSection.style.display = 'block';
     });
   </script>
 </body>
+
 </html>
