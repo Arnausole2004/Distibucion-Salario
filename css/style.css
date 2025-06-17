@@ -61,7 +61,7 @@ header.tech-header p {
   text-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-/* NAVBAR ESTILO OSCURO CON ANIMACIONES Y MÁS ESPACIADO */
+/* NAVBAR ESTILO OSCURO, ANIMADO, MÁS SEPARADO Y LETRA MÁS PEQUEÑA */
 .navbar {
   background-color: #000;
   padding: 1rem 2rem;
@@ -87,23 +87,24 @@ header.tech-header p {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3.5rem; /* Aumentado para más separación */
+  gap: 5rem; /* MÁS separación entre botones */
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 0.85rem; /* LETRA más pequeña */
+  font-weight: 400;
   position: relative;
   transition: color 0.3s ease;
+  letter-spacing: 0.05em;
 }
 
 .nav-links a::after {
   content: "";
   position: absolute;
   width: 0%;
-  height: 2px;
+  height: 1.5px;
   background-color: #fff;
   left: 0;
   bottom: -4px;
@@ -111,15 +112,12 @@ header.tech-header p {
 }
 
 .nav-links a:hover {
-  color: #aaa;
+  color: #ccc;
 }
 
 .nav-links a:hover::after {
   width: 100%;
 }
-
-
-
 
 /* Secciones */
 section {
