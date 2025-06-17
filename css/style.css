@@ -61,28 +61,48 @@ header.tech-header p {
   text-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
+/* Contenedor del navbar */
 .navbar {
-  background-color: #000000; /* fondo negro sólido */
+  background-color: #000000; /* Fondo negro sólido sin degradados */
+  width: 100%;
+  padding: 0.8rem 2rem;
+  box-sizing: border-box;
+}
+
+/* Contenedor interno para centrar y limitar ancho */
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Estilos para el menú de navegación */
+.nav-links {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 1rem 0;
-  font-family: 'Poppins', sans-serif;
+  gap: 2.5rem; /* Espacio horizontal entre enlaces */
 }
 
-.navbar nav {
-  display: flex;
-  gap: 2rem; /* más espacio entre botones */
-}
-
-.navbar a {
-  color: white;
+/* Estilos para los enlaces */
+.nav-links a {
+  color: #fff; /* Texto blanco */
   text-decoration: none;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.04rem;
+  font-size: 0.85rem; /* Letra más pequeña */
   padding: 0.3rem 0;
-  }
+  letter-spacing: 0.05rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Cambio de color al pasar el mouse */
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #1db954; /* Verde vibrante al hacer hover/focus */
+  outline: none;
+}
+
 
 /* Secciones */
 section {
