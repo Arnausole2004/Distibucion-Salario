@@ -10,65 +10,106 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <!-- FontAwesome para iconos -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    crossorigin="anonymous"
-  />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/app.css" />
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar" role="navigation" aria-label="Menú principal">
-    <ul class="nav-container">
-    <a href="index.html">Inicio</a>
-    <a href="distribucion.html" aria-current="page">Distribución de salario</a>
-    <a href="#calculadora">Calculadora de gastos</a>
-    <a href="#simulador">Simulador de inversión</a>
-    <a href="#retos">Retos de ahorro</a>
-    <a href="#consejos">Consejos expertos</a>
-    </ul>
-  </nav>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">FitFinance</a>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="distribucion.html" aria-current="page">Distribución de salario</a>
+        <a href="calculadora.html">Calculadora de gastos</a>
+        <a href="simulador.html">Simulador de inversión</a>
+        <a href="retos.html">Retos de ahorro</a>
+        <a href="consejos.html">Consejos expertos</a>
+      </nav>
+    </div>
+  </header>
 
-  <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
-    <h1>Distribución inteligente de tu salario</h1>
-    <p>Introduce tu ingreso mensual y descubre cómo distribuirlo inteligentemente según la regla 50/30/20.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Organiza tu salario de forma inteligente</h1>
+        <p>Una buena gestión de tus ingresos puede marcar la diferencia entre estabilidad y estrés financiero. Descubre cómo aplicar la regla 50/30/20 para una vida financiera saludable.</p>
+      </div>
+      <div class="hero-image">
+        <img src="img/distribucion.svg" alt="Distribución de salario" />
+      </div>
+    </div>
+  </section>
 
-    <form id="salary-form" style="max-width: 400px; margin-top: 2rem;">
-      <label for="salary">Salario mensual (€):</label><br />
-      <input
-        type="number"
-        id="salary"
-        name="salary"
-        required
-        min="0"
-        placeholder="Ej. 2000"
-        style="padding: 0.5rem; width: 100%; margin: 1rem 0;"
-      />
-      <button
-        type="submit"
-        style="
-          padding: 0.7rem 1.5rem;
-          background-color: #00b300;
-          border: none;
-          color: white;
-          font-weight: bold;
-          cursor: pointer;
-          border-radius: 4px;
-        "
-      >
-        Calcular
-      </button>
-    </form>
+  <!-- Introducción -->
+  <section class="info-section">
+    <div class="container">
+      <h2>¿Qué es la regla 50/30/20?</h2>
+      <p>Es un método sencillo para distribuir tu salario mensual: 50% para necesidades básicas como vivienda y comida, 30% para deseos como ocio o compras personales, y 20% para ahorro o inversión. Esta estrategia permite mantener un equilibrio saludable entre disfrutar del presente y planificar el futuro.</p>
+      <p>Al aplicar esta regla, no solo evitas deudas innecesarias, sino que también creas un hábito de ahorro constante. Ya sea que ganes mucho o poco, la clave está en el control y la disciplina.</p>
+    </div>
+  </section>
 
-    <div id="resultados" style="margin-top: 2rem; font-size: 1.2rem;"></div>
-  </main>
+  <!-- Calculadora -->
+  <section class="info-section">
+    <div class="container">
+      <h2>Calculadora de distribución</h2>
+      <p>Introduce tu salario mensual y obtén una distribución recomendada automáticamente.</p>
 
-  <footer role="contentinfo" style="text-align:center; margin-top:4rem; padding:1rem 0; background:#f0f0f0;">
-    &copy; 2025 FitFinance Investments. Todos los derechos reservados.
+      <form id="salary-form">
+        <label for="salary">Salario mensual (€):</label>
+        <input type="number" id="salary" name="salary" required min="0" placeholder="Ej. 2000" />
+        <button type="submit" class="btn-descarga">Calcular</button>
+      </form>
+
+      <div id="resultados" class="resultados"></div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="info-section">
+    <div class="container">
+      <h2>¿Por qué seguir esta estrategia?</h2>
+      <ul>
+        <li><i class="fa-solid fa-check"></i> <strong>Claridad financiera:</strong> Sabes en qué se va cada euro.</li>
+        <li><i class="fa-solid fa-check"></i> <strong>Menos estrés:</strong> Evita sorpresas a fin de mes.</li>
+        <li><i class="fa-solid fa-check"></i> <strong>Mejor ahorro:</strong> Prioriza tus metas a largo plazo.</li>
+        <li><i class="fa-solid fa-check"></i> <strong>Flexibilidad:</strong> Adapta los porcentajes según tus circunstancias.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Consejos prácticos -->
+  <section class="info-section">
+    <div class="container">
+      <h2>Consejos prácticos para aplicar la regla</h2>
+      <ol>
+        <li>Haz una lista de tus gastos fijos mensuales. Clasifícalos en necesidades y deseos.</li>
+        <li>Establece límites para el gasto en ocio, comidas fuera, y suscripciones.</li>
+        <li>Automatiza el ahorro. Pásalo a una cuenta distinta el mismo día que recibes tu salario.</li>
+        <li>Revisa tu presupuesto cada mes y ajústalo según tu realidad.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="descarga">
+    <div class="container">
+      <p>¡Empieza hoy mismo a tomar el control de tus finanzas!</p>
+      <a href="simulador.html" class="btn-descarga">Ir al simulador de inversión</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 FitFinance Investments. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- Script -->
   <script>
     document.getElementById('salary-form').addEventListener('submit', function (e) {
       e.preventDefault();
@@ -84,9 +125,11 @@
       const ahorro = salary * 0.2;
 
       document.getElementById('resultados').innerHTML = `
-        <p><strong>50% Necesidades:</strong> ${necesidades.toFixed(2)} €</p>
-        <p><strong>30% Deseos:</strong> ${deseos.toFixed(2)} €</p>
-        <p><strong>20% Ahorro / Inversión:</strong> ${ahorro.toFixed(2)} €</p>
+        <div class="resultado-bloque">
+          <p><strong>50% Necesidades:</strong> ${necesidades.toFixed(2)} €</p>
+          <p><strong>30% Deseos:</strong> ${deseos.toFixed(2)} €</p>
+          <p><strong>20% Ahorro / Inversión:</strong> ${ahorro.toFixed(2)} €</p>
+        </div>
       `;
     });
   </script>
