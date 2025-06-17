@@ -75,7 +75,7 @@ header.tech-header p {
 .nav-links {
   display: flex;
   flex-direction: row;
-  gap: 3rem; /* espacio moderado */
+  gap: 1.5rem; /* espacio moderado */
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
@@ -84,7 +84,7 @@ header.tech-header p {
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 0.85rem; /* letra más pequeña */
+  font-size: 1rem; /* letra más pequeña */
   font-weight: 400;
   position: relative;
   transition: color 0.3s ease;
