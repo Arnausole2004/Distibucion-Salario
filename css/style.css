@@ -36,24 +36,24 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+.navbar {
+  background-color: #000;
+  padding: 1rem 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-.nav a {
+.navbar a {
+  color: white;
   text-decoration: none;
-  color: #fff;
+  padding: 0.5rem 1rem;
   font-weight: 500;
-  font-size: 1.05rem;
   transition: color 0.3s ease;
 }
 
-.nav a:hover {
-  color: #00e0d0;
+.navbar a:hover {
+  color: #00e0d0; /* azul claro al pasar el cursor */
 }
+
 
 /* Hero Section */
 .hero {
