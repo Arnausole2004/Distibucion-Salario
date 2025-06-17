@@ -76,14 +76,14 @@ header.tech-header p {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
   flex-wrap: nowrap;
 }
 
 .nav-links a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 500;
   transition: color 0.2s ease;
 }
@@ -91,10 +91,6 @@ header.tech-header p {
 .nav-links a:hover {
   color: #999999;
 }
-
-
-
-
 
 /* Secciones */
 section {
