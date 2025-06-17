@@ -1,160 +1,249 @@
-:root {
-  --color-primario: #0a84ff;
-  --color-secundario: #00b894;
-  --color-fondo: #f8f9fa;
-  --color-superficie: #ffffff;
-  --color-texto: #212529;
-  --color-gris: #6c757d;
-  --color-borde: #dee2e6;
-  --radius: 1rem;
-  --sombra: 0 10px 25px rgba(0, 0, 0, 0.08);
-  --transicion: all 0.3s ease-in-out;
-  --font-base: 'Poppins', sans-serif;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
+/* ======= Fuente y diseño base ======= */
 body {
-  font-family: var(--font-base);
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  padding: 2rem;
-  background-color: var(--color-fondo);
-  color: var(--color-texto);
-  line-height: 1.75;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
   scroll-behavior: smooth;
+  line-height: 1.6;
 }
 
 .container {
-  max-width: 960px;
-  margin: auto;
-  background: var(--color-superficie);
-  padding: 3rem 2rem;
-  border-radius: var(--radius);
-  box-shadow: var(--sombra);
-  animation: fadeIn 0.6s ease forwards;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ======= Encabezado ======= */
+.header {
+  background: #000;
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-h1, h2, h3 {
+.header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--color-primario);
-}
-
-h1 {
-  font-size: 2.25rem;
-}
-
-p {
-  margin-bottom: 1.25rem;
-  color: var(--color-gris);
-  font-size: 1.05rem;
-  text-align: justify;
-}
-
-a {
-  color: var(--color-primario);
-  text-decoration: none;
-  transition: var(--transicion);
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.back-link {
-  display: inline-block;
-  margin-bottom: 2rem;
-  font-weight: 500;
-  color: var(--color-primario);
-  transition: var(--transicion);
-}
-
-.back-link:hover {
-  color: var(--color-secundario);
-  transform: translateX(-4px);
-}
-
-button, .btn {
-  display: inline-block;
-  padding: 0.8rem 1.8rem;
-  font-size: 1rem;
-  font-weight: 600;
   color: #fff;
-  background-color: var(--color-primario);
-  border: none;
-  border-radius: 50px;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.nav a {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #00e0d0;
+}
+
+/* ======= Hero Section ======= */
+.hero {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-color: #f0f8ff;
+}
+
+.hero-text {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.hero-text h1 {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ======= Secciones de información ======= */
+.info-section {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+
+.info-section h2 {
+  font-size: 2rem;
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.info-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+.info-section img {
+  margin-top: 2rem;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* ======= Botón de acción ======= */
+.btn {
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s ease;
   cursor: pointer;
-  transition: var(--transicion);
-  box-shadow: 0 5px 15px rgba(0, 132, 255, 0.3);
 }
 
-button:hover, .btn:hover {
-  background-color: var(--color-secundario);
-  box-shadow: 0 8px 20px rgba(0, 185, 148, 0.35);
-  transform: scale(1.03);
+.btn:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
 }
 
-input, select {
+/* ======= Sección de descarga ======= */
+.descarga {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+/* ======= Footer ======= */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  color: #666;
+  font-size: 0.95rem;
+  border-top: 1px solid #eaeaea;
+}
+
+/* ======= Formularios ======= */
+form {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select {
   width: 100%;
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
-  border: 1px solid var(--color-borde);
-  border-radius: var(--radius);
-  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   font-size: 1rem;
-  transition: var(--transicion);
+  transition: border-color 0.3s ease;
 }
 
-input:focus, select:focus {
-  border-color: var(--color-primario);
+input:focus,
+select:focus {
+  border-color: #28a745;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.15);
 }
 
+label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* ======= Tablas ======= */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 2rem;
-  font-size: 0.95rem;
 }
 
 th, td {
-  padding: 0.85rem 1rem;
-  border-bottom: 1px solid var(--color-borde);
+  padding: 1rem;
+  border: 1px solid #ddd;
   text-align: left;
 }
 
 th {
-  background-color: var(--color-primario);
+  background-color: #28a745;
   color: white;
-  font-weight: 600;
 }
 
 tr:nth-child(even) {
-  background-color: #f1f3f5;
+  background-color: #f9f9f9;
 }
 
+/* ======= Responsive ======= */
 @media (max-width: 768px) {
-  .container {
-    padding: 2rem 1.25rem;
-  }
-
-  h1 {
-    font-size: 1.75rem;
-  }
-
-  .btn, button {
-    width: 100%;
+  .hero {
+    flex-direction: column;
     text-align: center;
   }
+
+  .hero-text, .hero-image {
+    padding: 0;
+  }
+
+  .nav {
+    gap: 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
 }
 
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select {
+    padding: 0.75rem;
+  }
+
+  th, td {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+}
