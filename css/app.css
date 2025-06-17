@@ -96,26 +96,26 @@ body {
 }
 
 /* ======= Secciones de información ======= */
-.info-section {
-  padding: 4rem 2rem;
-  background-color: #fff;
-  border-top: 1px solid #eee;
-  margin-top: 1rem; /* o 1.2rem para que quede más cómodo */
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #eee; /* opcional para separar visualmente */
+info-section {
+  margin: 1rem auto; /* menos espacio arriba y abajo, centrado horizontal */
+  padding: 1.5rem 2rem; /* espacio interno cómodo */
+  max-width: 800px;    /* para que no ocupe toda la pantalla */
+  background-color: #f9f9f9; /* fondo suave para destacar */
+  border-radius: 10px; /* bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra sutil */
+  text-align: center; /* centra el texto */
 }
 
 .info-section h2 {
-  font-size: 2rem;
-  color: #28a745;
   margin-bottom: 1rem;
+  color: #28a745;
+  font-weight: 700;
 }
 
 .info-section p {
   font-size: 1.1rem;
-  line-height: 1.8;
-  color: #444;
+  color: #555;
+  line-height: 1.6;
 }
 
 .info-section img {
