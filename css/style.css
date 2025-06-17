@@ -61,56 +61,61 @@ header.tech-header p {
   text-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-/* NAVBAR OSCURO MODERNO */
+/* NAVBAR ESTILO OSCURO CON ANIMACIONES */
 .navbar {
-  background: linear-gradient(to right, #1a1a1a, #2a2a2a);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-  padding: 1rem 0;
+  background-color: #000;
+  padding: 1rem 2rem;
   font-family: 'Poppins', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .nav-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-}
-
-.nav-links {
-  display: flex;
   gap: 2rem;
 }
 
 .nav-links a {
-  color: #e0e0e0;
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
   position: relative;
-  padding: 0.5rem 0;
   transition: color 0.3s ease;
 }
 
 .nav-links a::after {
-  content: '';
+  content: "";
   position: absolute;
-  width: 100%;
+  width: 0%;
   height: 2px;
-  background-color: #888;
-  bottom: 0;
+  background-color: #fff;
   left: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+  bottom: -4px;
+  transition: width 0.3s ease-in-out;
 }
 
 .nav-links a:hover {
-  color: #ffffff;
+  color: #aaa;
 }
 
 .nav-links a:hover::after {
-  transform: scaleX(1);
+  width: 100%;
 }
 
 
