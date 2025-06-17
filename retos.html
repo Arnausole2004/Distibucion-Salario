@@ -1,70 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Retos Financieros</title>
-  <link rel="stylesheet" href="css/app.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retos de Ahorro - FitFinance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
 </head>
+
 <body>
-  <h1>Retos Financieros para Mejorar tu Economía</h1>
-  <ul id="challengesList" aria-label="Lista de retos financieros">
-    <li>
-      <input type="checkbox" id="reto1" />
-      <label for="reto1">Ahorrar 100€ extra este mes</label>
-    </li>
-    <li>
-      <input type="checkbox" id="reto2" />
-      <label for="reto2">No gastar en cafés fuera por una semana</label>
-    </li>
-    <li>
-      <input type="checkbox" id="reto3" />
-      <label for="reto3">Crear un presupuesto mensual y ceñirte a él</label>
-    </li>
-    <li>
-      <input type="checkbox" id="reto4" />
-      <label for="reto4">Investigar una nueva forma de inversión</label>
-    </li>
-    <li>
-      <input type="checkbox" id="reto5" />
-      <label for="reto5">Reducir gastos innecesarios en 50€ este mes</label>
-    </li>
-    <li>
-      <input type="checkbox" id="reto6" />
-      <label for="reto6">Automatizar el ahorro mensual</label>
-    </li>
-  </ul>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">FitFinance</a>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="distribucion.html">Distribución</a>
+        <a href="calculadora.html">Calculadora</a>
+        <a href="simulador.html">Simulador</a>
+        <a href="retos.html" aria-current="page">Retos</a>
+        <a href="educacion-financiera.html">Educación</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Desafía tus hábitos y ahorra de forma divertida</h1>
+        <p>Explora nuestros retos de ahorro diseñados para motivarte, organizar tus finanzas y alcanzar tus metas.</p>
+      </div>
+      <div class="hero-image">
+        <img src="img/retos-ahorro.jpg" alt="Retos de ahorro" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Retos Section -->
+  <section class="info-section">
+    <div class="container">
+      <h2>Retos populares</h2>
+
+      <article>
+        <h3>1. Reto de las 52 semanas</h3>
+        <p>Aumenta tu ahorro semanalmente: comienza con 1€ la primera semana, 2€ la segunda... hasta completar 52 semanas. Al final habrás ahorrado 1.378€.</p>
+      </article>
+
+      <article>
+        <h3>2. Reto sin café fuera</h3>
+        <p>Durante un mes, evita comprar cafés fuera de casa. Cada vez que lo consigas, guarda ese dinero. Descubrirás cuánto puedes ahorrar eliminando pequeños gastos.</p>
+      </article>
+
+      <article>
+        <h3>3. Reto del billete</h3>
+        <p>Cada vez que recibas un billete de 5€, guárdalo. No lo gastes. Este reto se basa en la acumulación pasiva sin sentir que haces un sacrificio importante.</p>
+      </article>
+
+      <article>
+        <h3>4. Reto de no gastar días</h3>
+        <p>Selecciona uno o dos días a la semana en los que no gastarás absolutamente nada. Es una forma excelente de detectar gastos innecesarios.</p>
+      </article>
+
+      <article>
+        <h3>5. Reto del 30 días sin comprar</h3>
+        <p>Pasa 30 días sin comprar nada que no sea esencial (alimentos, higiene, transporte). Al final, calcula tu ahorro total.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="info-section" style="background-color: #f9f9f9;">
+    <div class="container">
+      <h2>Consejos para completar tus retos</h2>
+      <ul>
+        <li>Establece un objetivo claro: ¿Para qué estás ahorrando?</li>
+        <li>Automatiza el proceso cuando sea posible.</li>
+        <li>Recompénsate al finalizar cada reto, sin gastar demasiado.</li>
+        <li>Comparte tu progreso con amigos o familiares.</li>
+        <li>Utiliza una app o una hoja de seguimiento.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="descarga">
+    <div class="container">
+      <h2>¡Acepta el reto!</h2>
+      <p>Descarga nuestra plantilla imprimible y empieza hoy mismo.</p>
+      <a href="descargas/plantilla-retos.pdf" class="btn-descarga" download>Descargar plantilla</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>Marca los retos que completes para llevar un mejor control.</p>
+    &copy; 2025 FitFinance. Todos los derechos reservados.
   </footer>
-
-  <script>
-    // Guardar estado de checkboxes en localStorage para persistencia simple
-    const challengesList = document.getElementById('challengesList');
-    const checkboxes = challengesList.querySelectorAll('input[type="checkbox"]');
-
-    // Cargar estado al inicio
-    window.addEventListener('load', () => {
-      checkboxes.forEach(cb => {
-        const saved = localStorage.getItem(cb.id);
-        if (saved === 'true') {
-          cb.checked = true;
-          cb.parentElement.querySelector('label').classList.add('completed');
-        }
-      });
-    });
-
-    // Guardar estado y actualizar estilo al cambiar checkbox
-    checkboxes.forEach(cb => {
-      cb.addEventListener('change', () => {
-        localStorage.setItem(cb.id, cb.checked);
-        if (cb.checked) {
-          cb.parentElement.querySelector('label').classList.add('completed');
-        } else {
-          cb.parentElement.querySelector('label').classList.remove('completed');
-        }
-      });
-    });
-  </script>
 </body>
+
 </html>
