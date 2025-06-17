@@ -62,9 +62,10 @@ header.tech-header p {
 }
 
 .navbar {
-  background-color: #000000; /* fondo negro absoluto */
+  background-color: #000000; /* fondo negro sólido */
   padding: 0.7rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  box-shadow: none; /* quitar sombra */
+  border: none; /* quitar cualquier borde si existiera */
 }
 
 .nav-container {
@@ -75,7 +76,7 @@ header.tech-header p {
 .nav-links {
   display: flex;
   flex-direction: row;
-  gap: 3rem; /* espacio moderado */
+  gap: 3rem; /* espacio moderado entre enlaces */
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
@@ -112,6 +113,7 @@ header.tech-header p {
 .nav-links a:focus::after {
   width: 100%;
 }
+
 
 
 /* Secciones */
