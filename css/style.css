@@ -61,35 +61,28 @@ header.tech-header p {
   text-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-/* NAVBAR NEGRO PLANO Y LETRAS BLANCAS EN FILA */
-
 .navbar {
-  background-color: #000000;
-  padding: 1rem 2rem;
-  font-family: 'Poppins', sans-serif;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-.nav-container {
+  background-color: #000000; /* fondo negro sólido */
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
-  flex-wrap: nowrap;
+  padding: 1rem 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-.nav-links a {
-  color: #ffffff;
+.navbar nav {
+  display: flex;
+  gap: 2rem; /* más espacio entre botones */
+}
+
+.navbar a {
+  color: white;
   text-decoration: none;
-  font-size: 2rem;
   font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: #999999;
+  font-size: 1rem;
+  letter-spacing: 0.04rem;
+  padding: 0.3rem 0;
+  transition: color 0.3s ease;
 }
 
 /* Secciones */
