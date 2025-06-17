@@ -96,27 +96,30 @@ body {
 }
 
 /* ======= Secciones de información ======= */
-info-section {
-  margin: 1rem auto; /* menos espacio arriba y abajo, centrado horizontal */
-  padding: 1.5rem 2rem; /* espacio interno cómodo */
-  max-width: 800px;    /* para que no ocupe toda la pantalla */
-  background-color: #f9f9f9; /* fondo suave para destacar */
-  border-radius: 10px; /* bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra sutil */
-  text-align: center; /* centra el texto */
+.info-section {
+  margin: 1rem auto;
+  padding: 1.5rem 2rem;
+  max-width: 800px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center; /* para el título */
 }
 
 .info-section h2 {
   margin-bottom: 1rem;
   color: #28a745;
   font-weight: 700;
+  text-align: center; /* centrado título */
 }
 
 .info-section p {
   font-size: 1.1rem;
   color: #555;
   line-height: 1.6;
+  text-align: justify; /* texto justificado */
 }
+
 
 .info-section img {
   margin-top: 2rem;
